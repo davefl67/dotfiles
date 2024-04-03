@@ -114,15 +114,14 @@ Once [yadm](https://yadm.io) is installed, common dotfiles are available in a [p
 1. `yadm init`
 2. `yadm clone -f`
 
-## OTHER PACKAGES
+## OTHER RESOURCES
+This is stuff I use but that does not have a Debian package. The links have instalation instructions included.
 - [tailscale](https://tailscale.com/download/linux)
 - [pfetch](https://github.com/dylanaraps/pfetch/releases)
 - [moar](https://github.com/walles/moar/releases/latest)
 - [lazydocker](https://github.com/jesseduffield/lazydocker/releases/latest)
 - [lazygit](https://github.com/jesseduffield/lazygit/releases/latest)
 - [ctop](https://github.com/bcicen/ctop/releases)
-- [rust](https://www.rust-lang.org/tools/install)
-- [btop](https://github.com/aristocratos/btop/releases/latest)
 
 ## STARSHIP PROMPT
 Install the [Starship prompt](https://starship.rs/#quick-install) for some colorful fun at the command line. Be sure also to copy or setup `~/.config/starship.toml` from the existing [dotfiles](https://github.com/davefl67/dotfiles). You will also need to install at least one [Nerd font](https://www.nerdfonts.com) to be able to see the glyphs, ligatures, and other cool shit. Download and copy font files into `~/.local/share/fonts` for a single user or `~/usr/local/share/fonts` for global use.
