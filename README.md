@@ -22,12 +22,15 @@ I have a desktop that runs Windows 11 with WSL. I can also boot it into Linux wi
 Behold, the fruits of my labor. Please excuse the dust. *And mind the gap.*
 
 ## SSH SETUP
-- Generate SSH keys for secure passwordless SSH logins
-- create or import your `~/.ssh/id_rsa.pub`
-- edit `~/.ssh/ssh_config`
-- edit `/etc/ssh/sshd_config` to harden security
-  - Change port
-  - Tailscale IP address
+- Generate SSH keys for secure passwordless SSH logins using the command `ssh-keygen -t rsa -b 4096`. Be sure to generate a password for this key.
+- The private key (your identification) will be save in the `~/.ssh/id_rsa` file under your home directory.
+- The public key will be save in the `~/.ssh/id_rsa.pub` file.
+- Upload your key to the host with the command `ssh-copy-id -i ~/.ssh/id_rsa <user>@server-ip`
+- Login to the remote server with the command `ssh <user>@server-ip`. You should be prompted for the password you generated for the key.
+- Once you are logged in, you can log out and test the key. Type `exit`
+- Log in once again `ssh <user>@server-ip`
+
+If everything works, you can now log in with no password required for this server.
 
 ### SSH SETUP FOR GITHUB LOGINS
 Create and upload an SSH key to Github. Once the key is on file, you can edit the `~/.ssh/config` to have the key used for passwordless logons. Add the following.
@@ -41,6 +44,17 @@ Host github.com
   To test the login, you will need to have the SSH Agent running. You should add a command to `~/.bashrc` The command is `eval "$(ssh-agent -s)"` and this will load the agent in the background. To test passwordless login, type this command: `ssh -vT git@github.com`
 
   When using git and are prompted for a user name, always use `git@github.com`. It will automatically use your SSH key and find your account. Check the [Github Docs](https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey) for troubleshooting assistance
+
+### HARDEN SSHD SERVER SECURITY
+You'll need to harden the server's **sshd** configuration to allow for passwordless logins only. There are a few other tips and tricks as well.
+- edit `/etc/ssh/sshd_config` to harden security
+- Change `Port` to something obscure higher than 2048
+- Change `PasswordAuthentication` to **no**
+- Change `ChallengeResponseAuthentication` to **no**
+- Change `ListenAddress` from `0.0.0.0` to the ip address of a VPN tunnel or a Tailscale IP address. This allows connections only from that private network.
+
+Once complete, restart the SSH server with the following command
+`sudo systemctl restart ssh`
 
 ## INSTALL APT PACKAGES
 - yadm    *(dotfile manager)*
