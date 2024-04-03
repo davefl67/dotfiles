@@ -282,9 +282,10 @@ if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
 fi
 
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+### GOLANG STUFF ###
+# export GOROOT=/usr/local/go
+# export GOPATH=$HOME/go
+# export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 ### TAILSCALE IP4 TO ENV VARIABLE ###
 export TAIL4="$(/sbin/ip address show dev tailscale0 | grep 'inet 1' | cut -c 10-23)"
@@ -294,6 +295,9 @@ eval "$(starship init bash)"
 
 ### WHAT THE FUCK?? ###
 eval "$(thefuck --alias)"
+
+### SSH-AGENT ###
+eval "$(ssh-agent)"
 
 ### PFETCH & FIGLET
 
