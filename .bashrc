@@ -303,7 +303,7 @@ eval "$(ssh-agent)"
 
 PF_COLOR=1
 clear
-figlet -f slant Penny
+figlet -f slant $HOSTNAME
 pfetch
 
 ########## EOF ##########
