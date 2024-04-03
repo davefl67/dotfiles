@@ -26,10 +26,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Fly.io
-export FLYCTL_INSTALL="/home/dave/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
 # set PATH so it includes go
 export PATH="/usr/local/go/bin:$PATH"
 
