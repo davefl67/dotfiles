@@ -28,6 +28,7 @@ Behold, the fruits of my labor. Please excuse the dust. *And mind the gap.*
 - edit `/etc/ssh/sshd_config` to harden security
   - Change port
   - Tailscale IP address
+- Be sure to set up ssh logins for Github as well
 
 ## INSTALL APT PACKAGES
 - yadm    *(dotfile manager)*
