@@ -306,4 +306,4 @@ clear
 figlet -f slant $HOSTNAME
 pfetch
 
-########## EOF ##########
+########### EOF ###########
