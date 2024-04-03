@@ -22,13 +22,25 @@ I have a desktop that runs Windows 11 with WSL. I can also boot it into Linux wi
 Behold, the fruits of my labor. Please excuse the dust. *And mind the gap.*
 
 ## SSH SETUP
-- Set up SSH keys for secure passwordless SSH logins
+- Generate SSH keys for secure passwordless SSH logins
 - create or import your `~/.ssh/id_rsa.pub`
 - edit `~/.ssh/ssh_config`
 - edit `/etc/ssh/sshd_config` to harden security
   - Change port
   - Tailscale IP address
-- Be sure to set up ssh logins for Github as well
+
+### SSH SETUP FOR GITHUB LOGINS
+Create and upload an SSH key to Github. Once the key is on file, you can edit the `~/.ssh/config` to have the key used for passwordless logons. Add the following.
+```
+Host github.com
+  User davefl67
+  IdentityFile ~/.ssh/davefl67_rsa
+  ForwardAgent yes
+  PubkeyAuthentication yes
+  ```
+  To test the login, you will need to have the SSH Agent running. You should add a command to `~/.bashrc` The command is `eval "$(ssh-agent -s)"` and this will load the agent in the background. To test passwordless login, type this command: `ssh -vT git@github.com`
+
+  When using git and are prompted for a user name, always use `git@github.com`. It will automatically use your SSH key and find your account. Check the [Github Docs](https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey) for troubleshooting assistance
 
 ## INSTALL APT PACKAGES
 - yadm    *(dotfile manager)*
