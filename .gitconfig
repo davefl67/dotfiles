@@ -1,0 +1,17 @@
+[safe]
+	directory = /mnt/sheldon/github
+	directory = /mnt/sheldon/github/eof-minimap
+[user]
+	name = davefl67
+	email = dave@davedorm.com
+	password = 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
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[core]
+	editor = micro

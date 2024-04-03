@@ -106,6 +106,9 @@ export VIEWER='/usr/local/bin/moar'
 export EDITOR='/usr/bin/micro'
 export VISUDO='/usr/bin/micro'
 export TERM='xterm-256color'
+export BROWSER='/usr/bin/lynx'
+export MICRO_TRUECOLOR=1
+export COLORTERM='truecolor'
 
 # na na na na na na na na BAT man
 export MANROFFOPT="-c"
