@@ -30,43 +30,55 @@ Behold, the fruits of my labor. Please excuse the dust. *And mind the gap.*
   - Tailscale IP address
 
 ## INSTALL APT PACKAGES
-- git
 - yadm    *(dotfile manager)*
 - wget
 - curl
 - micro
+- figlet
 - ranger
 - mc      *(Midnight Commander)*
+- build-essential
+- gcc
+- make
 - btop
 - htop
 - tmux    *(terminal miultiplexer)*
 - golang
-- python-pip
+- python3-pip
 - nodejs
 - yarn
-- docker
+- docker.io
 - docker-compose
-- build-essential
-- gcc
-- make
 - trash-cli
 - thefuck
-- 7zip
+- p7zip
 - exa
-- unrar
+- tldr
+- unrar-free
 - unzip
+
+## ADDING NONFREE AND CONTRIB REPOSITORIES
+Debian only provides free (as in freedon) software by default. Other repositories are available.
+
+To add these repositories:
+1. `sudo apt update && sudo apt upgrade`
+2. `sudo apt install software-properties-common -y`
+3. `sudo apt-add-repository contrib non-free`
 
 ## DOTFILES IN GITHUB
 Once `yadm` is installed, common dotfiles are available in a [private Github repo](https://github.com/davefl67/dotfiles)
+1. `yadm init`
+2. `yadm clone -f` 
 
 ## OTHER PACKAGES
-
 - [tailscale](https://tailscale.com/download/linux)
+- [pfetch](https://github.com/dylanaraps/pfetch/releases)
 - [moar](https://github.com/walles/moar/releases/latest)
 - [lazydocker](https://github.com/jesseduffield/lazydocker/releases/latest)
 - [lazygit](https://github.com/jesseduffield/lazygit/releases/latest)
 - [ctop](https://github.com/bcicen/ctop/releases)
 - [rust](https://www.rust-lang.org/tools/install)
+- [btop](https://github.com/aristocratos/btop/releases/latest)
 
 ## STARSHIP PROMPT
 Install the [Starship prompt](https://starship.rs/#quick-install) for some colorful fun at the command line. Be sure also to copy or setup `~/.config/starship.toml` from the existing [dotfiles](https://github.com/davefl67/dotfiles). You will also need to install at least one [Nerd font](https://www.nerdfonts.com) to be able to see the glyphs, ligatures, and other cool shit. Download and copy font files into `~/.local/share/fonts` for a single user or `~/usr/local/share/fonts` for global use.
@@ -76,6 +88,12 @@ Install the [Starship prompt](https://starship.rs/#quick-install) for some color
 - `~/.bash_aliases`
 - `~/.profile`
 - `~/.tmux.conf`
+
+# DOCKER MAGIC
+When installing Docker, you will need to add your user to the `docker` group to be able to run docker containers without sudo.
+1. Run `sudo usermod -aG docker $USER`
+2. Log out of your account
+3. Log back in. Run `groups $USER` to verify membership
 
 ## PORTAINER
 Once Docker is running on the new machine, the first package to install is either [Portainer](https://docs.portainer.io/start/install-ce/server/docker/linux) or [Portainer Agent](https://docs.portainer.io/admin/environments/add/docker/agent). 
