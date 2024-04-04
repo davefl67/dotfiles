@@ -114,6 +114,15 @@ export COLORTERM='truecolor'
 export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 
+# editor replacements
+alias nano="micro"
+alias vi="nano"
+
+# pager replacements
+alias less="moar"
+alias most="moar"
+alias more="moar"
+
 # LAZYDOCKER
 alias lzd='lazydocker'
 
@@ -156,9 +165,9 @@ alias pscpu='ps auxf | sort -nr -k 3'
 
 # ssh shortcuts
 alias hades='ssh davefl67@hades.usbx.me'
-alias howard='ssh dietpi@10.0.0.205'
-alias leonard='ssh dave@10.0.0.105'
-alias barry='ssh dietpi@10.0.0.210'
+# alias howard='ssh dietpi@10.0.0.205'
+# alias leonard='ssh dave@10.0.0.105'
+# alias barry='ssh dietpi@10.0.0.210'
 
 # git
 alias addup='git add -u'
@@ -297,7 +306,7 @@ eval "$(starship init bash)"
 eval "$(thefuck --alias)"
 
 ### SSH-AGENT ###
-eval "$(ssh-agent)"
+eval "$(ssh-agent -s)"
 
 ### PFETCH & FIGLET
 
