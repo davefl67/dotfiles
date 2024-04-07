@@ -142,8 +142,8 @@ alias l.='echo " " && exa -a | egrep "^\."'
 ### TRASH-CLI
 # Instead of rm, which deletes files permanently, we will use trash-cli
 # (github.com/andreafrancia/trash-cli) which moves files to system trash.
-# alias tp='trash-put'
-# alias rm='trash-put'
+alias tp='trash-put'
+alias rm='trash-put'
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -165,6 +165,7 @@ alias pscpu='ps auxf | sort -nr -k 3'
 
 # ssh shortcuts
 alias hades='ssh davefl67@hades.usbx.me'
+alias eof='ssh dave@100.86.3.59 -p 25309'
 # alias howard='ssh dietpi@10.0.0.205'
 # alias leonard='ssh dave@10.0.0.105'
 # alias barry='ssh dietpi@10.0.0.210'
