@@ -78,8 +78,8 @@ wget  | File getter
 curl  | File getter
 micro | CLI Text Editor
 bat   | CLI Pager
-figlet| Make ASCII word art
-ranger| CLI File Manager
+figlet | Make ASCII word art
+ranger | CLI File Manager
 mc    | Midnight Commander
 build-essential | Essential files to compile code
 gcc | Compiler
@@ -102,6 +102,7 @@ unrar-free | Compression algorithn
 unzip | Compression algorithn
 exa | Fancy replacement for `ls`
 tldr | **tldr;** condensed `man` pages
+cmatrix | *The Matrix* digital rain
 ---
 ## ADDING NONFREE AND CONTRIB REPOSITORIES
 Debian only provides free (as in freedon) software by default. Other repositories without free licenses are available. To add these repositories:
