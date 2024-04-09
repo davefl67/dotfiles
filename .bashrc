@@ -306,9 +306,6 @@ eval "$(starship init bash)"
 ### WHAT THE FUCK?? ###
 eval "$(thefuck --alias)"
 
-### SSH-AGENT ###
-eval "$(ssh-agent -s)"
-
 ### PFETCH & FIGLET
 
 PF_COLOR=1
