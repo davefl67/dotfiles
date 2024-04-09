@@ -306,8 +306,10 @@ eval "$(starship init bash)"
 ### WHAT THE FUCK?? ###
 eval "$(thefuck --alias)"
 
-### PFETCH & FIGLET
+### RUST ###
+. "$HOME/.cargo/env"
 
+### PFETCH & FIGLET
 PF_COLOR=1
 clear
 figlet -f slant $HOSTNAME

@@ -40,3 +40,4 @@ export MICRO_TRUECOLOR=1
 export COLORTERM='truecolor'
 
 mesg n 2> /dev/null || true
+. "$HOME/.cargo/env"
