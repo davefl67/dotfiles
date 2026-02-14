@@ -19,6 +19,12 @@ cd ~/dotfiles
 - Bypass auto-tmux with `DISABLE_TMUX=1 zsh`.
 - Start a plain shell (no auto-tmux, no rc files) with `DISABLE_TMUX=1 zsh -f`.
 
+## Switching Shells
+
+- `zsh` is the default shell.
+- Use `tobash` to switch to a full login `bash` shell.
+- Use `tozsh` to return to `zsh`.
+
 ## Doctor
 
 ```bash

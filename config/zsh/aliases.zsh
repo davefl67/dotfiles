@@ -1,6 +1,8 @@
 # Lean git quality-of-life aliases.
 alias gs='git status -sb'
 alias gl='git log --oneline --graph --decorate -n 20'
+alias tobash='exec bash -l'
+alias tozsh='exec zsh -l'
 
 # Prefer lla when available.
 if (( $+commands[lla] )); then
