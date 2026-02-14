@@ -1,3 +1,3 @@
 # Dave Terminal Standard
 
-Single source of truth for terminal setup.
+Cross-platform terminal setup (Debian + Windows).
