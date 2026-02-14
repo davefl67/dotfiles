@@ -1,0 +1,10 @@
+# Keep startup fast and deterministic.
+autoload -Uz compinit
+compinit -C
+
+_zsh_repo_dir="${${(%):-%N}:A:h}"
+
+[[ -r "${_zsh_repo_dir}/aliases.zsh" ]] && source "${_zsh_repo_dir}/aliases.zsh"
+[[ -r "${_zsh_repo_dir}/functions.zsh" ]] && source "${_zsh_repo_dir}/functions.zsh"
+
+unset _zsh_repo_dir

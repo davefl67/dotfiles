@@ -1,0 +1,7 @@
+# Keep user-local binaries first on PATH.
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+export EDITOR="micro"
+export VISUAL="micro"
