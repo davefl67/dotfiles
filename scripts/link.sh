@@ -42,7 +42,7 @@ link_file() {
 link_file "$REPO_ROOT/config/zsh/zshrc" "$HOME/.zshrc"
 link_file "$REPO_ROOT/config/zsh/zshenv" "$HOME/.zshenv"
 link_file "$REPO_ROOT/config/starship/starship.toml" "$HOME/.config/starship.toml"
-link_file "$REPO_ROOT/config/tmux/.tmux.conf" "$HOME/.tmux.conf"
+link_file "$REPO_ROOT/config/tmux/tmux.conf" "$HOME/.tmux.conf"
 link_file "$REPO_ROOT/config/git/.gitconfig" "$HOME/.gitconfig"
 link_file "$REPO_ROOT/config/git/.gitignore_global" "$HOME/.gitignore_global"
 link_file "$REPO_ROOT/config/btop/btop.conf" "$HOME/.config/btop/btop.conf"

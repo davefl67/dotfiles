@@ -1,10 +1,20 @@
-# Keep startup fast and deterministic.
-autoload -Uz compinit
-compinit -C
+# Keep startup fast and deterministic for interactive shells.
+if [[ -o interactive ]]; then
+  autoload -Uz compinit
+  compinit -C
 
-_zsh_repo_dir="${${(%):-%N}:A:h}"
+  _zsh_repo_dir="${${(%):-%N}:A:h}"
 
-[[ -r "${_zsh_repo_dir}/aliases.zsh" ]] && source "${_zsh_repo_dir}/aliases.zsh"
-[[ -r "${_zsh_repo_dir}/functions.zsh" ]] && source "${_zsh_repo_dir}/functions.zsh"
+  [[ -r "${_zsh_repo_dir}/aliases.zsh" ]] && source "${_zsh_repo_dir}/aliases.zsh"
+  [[ -r "${_zsh_repo_dir}/functions.zsh" ]] && source "${_zsh_repo_dir}/functions.zsh"
 
-unset _zsh_repo_dir
+  unset _zsh_repo_dir
+
+  if [[ -z "${TMUX-}" && -z "${DISABLE_TMUX-}" ]] && (( $+commands[tmux] )); then
+    if tmux has-session -t main 2>/dev/null; then
+      exec tmux attach-session -t main
+    else
+      exec tmux new-session -s main
+    fi
+  fi
+fi
