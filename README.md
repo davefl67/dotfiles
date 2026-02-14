@@ -15,3 +15,10 @@ cd ~/dotfiles
 - `rm` uses `trash-put` when `trash-cli` is installed.
 - `rmp` is the permanent delete alias (`rm -i` via the real `rm` command).
 - `ls`/`ll` use `lla` if `lla` is installed.
+
+## Doctor
+
+```bash
+cd ~/dotfiles
+./scripts/doctor.sh
+```
