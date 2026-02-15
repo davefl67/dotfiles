@@ -10,20 +10,26 @@ cd ~/dotfiles
 ./bootstrap/bootstrap-debian.sh
 ```
 
+## Bash-First Setup
+
+- Bash is the default shell layer in this repo.
+- `~/.bashrc` is linked to `config/bash/bashrc.shim`.
+- The shim sources:
+  - repo-managed settings from `config/bash/bashrc`
+  - user-specific overrides from `~/.bashrc.local` (if present)
+
+## Preserve Existing `~/.bashrc`
+
+- Preferred: move your current `~/.bashrc` to `~/.bashrc.local` before linking.
+- Safe fallback: if you run `./scripts/link.sh` first, the script backs up existing `~/.bashrc` to a timestamped file like `~/.bashrc.bak.YYYYMMDDHHMMSS`.
+- After linking, you can restore personal settings by copying content from that backup into `~/.bashrc.local`.
+- `~/.bashrc.local` is your personal layer and is intended to hold machine/user-specific customizations.
+
 ## Shell Notes
 
 - `rm` uses `trash-put` when `trash-cli` is installed.
 - `rmp` is the permanent delete alias (`rm -i` via the real `rm` command).
 - `ls`/`ll` use `lla` if `lla` is installed.
-- Interactive `zsh` shells auto-attach to tmux session `main` (or create it if missing).
-- Bypass auto-tmux with `DISABLE_TMUX=1 zsh`.
-- Start a plain shell (no auto-tmux, no rc files) with `DISABLE_TMUX=1 zsh -f`.
-
-## Switching Shells
-
-- `zsh` is the default shell.
-- Use `tobash` to switch to a full login `bash` shell.
-- Use `tozsh` to return to `zsh`.
 
 ## Doctor
 

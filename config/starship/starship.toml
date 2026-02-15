@@ -1,16 +1,239 @@
-add_newline = false
-format = "$directory$git_branch$git_status$character"
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
 
-[directory]
-truncation_length = 3
-truncate_to_repo = false
-
-[git_branch]
-format = " [$symbol$branch]($style)"
-
-[git_status]
-format = "[$all_status$ahead_behind]($style)"
+# Inserts a blank line between shell prompts
+add_newline = true
 
 [character]
-success_symbol = "[>](bold green) "
-error_symbol = "[>](bold red) "
+success_symbol =	"[➜](bold green)"
+error_symbol =		"[✗](bold red)"
+
+[sudo]
+format ="[$symbol]($style)"
+style = "bold red"
+symbol = ""
+disabled = true
+
+#[custom.sudo]
+#description = "sudo marker"
+#command = "echo -n ''"
+#format = "[$output]($style) "
+#style = "bold fg:bright-red"
+#when = "sudo -vn &>/dev/null"
+#disabled = true
+
+[username]
+style_user = "green"
+style_root = "red"
+format = "[](bold white) [$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[  ](red)[$hostname]($style)[$ssh_symbol ](bold white)"
+ssh_symbol = " "
+style = "green"
+trim_at = "."
+disabled = false
+
+[localip]
+ssh_only = true
+format = "[](white)"
+#format = "[ ](white)[100.95.254.122](bold black)"
+#format = "[ ](white)[$localipv4](bold black) "
+#disabled = false
+disabled = true
+
+[directory]
+style = "cyan"
+read_only = "  "
+read_only_style = "red"
+format = "[$read_only]($read_only_style)[$path]($style) "
+home_symbol = " ~"
+truncation_length = 3
+truncation_symbol = "  /"
+
+[cmd_duration]
+min_time = 500
+format = " [$duration]($style)"
+style = "dimmed yellow"
+disabled = true
+
+[fill]
+# Make "fill" use space characters
+symbol = " "
+
+[time]
+# Enable and format the time module
+disabled = true
+style = "bold bright-black"
+format = "[$time]($style)"
+
+[line_break]
+# Make it into a single-line prompt
+# by disabling the line-break
+disabled = false
+
+[aws]
+symbol = "  "
+disabled = true #false
+
+[buf]
+symbol = " "
+disabled = true #false
+
+[c]
+symbol = " "
+disabled = true #false
+
+[conda]
+symbol = " "
+disabled = true #false
+
+[dart]
+symbol = " "
+disabled = true #false
+
+[docker_context]
+symbol = " "
+disabled = true #false
+
+[elixir]
+symbol = " "
+disabled = true #false
+
+[elm]
+symbol = " "
+disabled = true #false
+
+[git_branch]
+symbol = " "
+disabled = false #true
+
+[golang]
+symbol = " "
+disabled = true #false
+
+[haskell]
+symbol = " "
+disabled = true #false
+
+[hg_branch]
+symbol = " "
+disabled = true #false
+
+[java]
+symbol = " "
+disabled = true #false
+
+[julia]
+symbol = " "
+disabled = true #false
+
+[memory_usage]
+symbol = " "
+disabled = true #false
+
+[nim]
+symbol = " "
+disabled = true #false
+
+[nix_shell]
+symbol = " "
+disabled = true #false
+
+[nodejs]
+symbol = " "
+disabled = true #false
+
+[package]
+symbol = " "
+disabled = true #false
+
+[python]
+symbol = " "
+disabled = true #false
+
+[spack]
+symbol = "🅢 "
+disabled = true #false
+
+[rust]
+symbol = " "
+disabled = true #false
+
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$buf\
+$c\
+$cmake\
+$cobol\
+$container\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$haskell\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""

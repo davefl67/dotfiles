@@ -39,8 +39,7 @@ link_file() {
   printf 'Linked %s -> %s\n' "$target" "$source"
 }
 
-link_file "$REPO_ROOT/config/zsh/zshrc" "$HOME/.zshrc"
-link_file "$REPO_ROOT/config/zsh/zshenv" "$HOME/.zshenv"
+link_file "$REPO_ROOT/config/bash/bashrc.shim" "$HOME/.bashrc"
 link_file "$REPO_ROOT/config/starship/starship.toml" "$HOME/.config/starship.toml"
 link_file "$REPO_ROOT/config/tmux/tmux.conf" "$HOME/.tmux.conf"
 link_file "$REPO_ROOT/config/git/.gitconfig" "$HOME/.gitconfig"

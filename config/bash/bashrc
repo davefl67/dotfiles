@@ -1,0 +1,39 @@
+# Repo-managed Bash configuration.
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init bash)"
+fi
+
+export EDITOR="micro"
+export VISUAL="micro"
+export PAGER="${PAGER:-less -FRX}"
+
+alias rmp='command rm -i'
+
+if command -v trash-put >/dev/null 2>&1; then
+  alias rm='trash-put'
+fi
+
+if command -v trash-list >/dev/null 2>&1; then
+  alias trashls='trash-list'
+fi
+
+if command -v trash-restore >/dev/null 2>&1; then
+  alias trashrestore='trash-restore'
+fi
+
+if command -v trash-empty >/dev/null 2>&1; then
+  alias trashempty='trash-empty'
+fi
+
+if command -v lla >/dev/null 2>&1; then
+  alias ls='lla'
+  alias ll='lla -lah'
+fi
+
+alias gs='git status -sb'
+alias gl='git log --oneline --decorate -20'
