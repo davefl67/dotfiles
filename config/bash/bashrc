@@ -1,7 +1,13 @@
 # Repo-managed Bash configuration.
 
-if command -v starship >/dev/null 2>&1; then
+if [[ $- == *i* ]]; then
+  set +x
+fi
+
+if [[ $- == *i* ]] && command -v starship >/dev/null 2>&1; then
+  export STARSHIP_DISABLE_PREEXEC=1
   eval "$(starship init bash)"
+  trap - DEBUG
 fi
 
 if command -v zoxide >/dev/null 2>&1; then

@@ -30,6 +30,8 @@ cd ~/dotfiles
 - `rm` uses `trash-put` when `trash-cli` is installed.
 - `rmp` is the permanent delete alias (`rm -i` via the real `rm` command).
 - `ls`/`ll` use `lla` if `lla` is installed.
+- If login hangs, Starship preexec hooks are disabled for compatibility.
+- If you see ++ lines, xtrace was on; DTS disables xtrace + Starship preexec for compatibility.
 
 ## Doctor
 
