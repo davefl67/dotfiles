@@ -9,12 +9,46 @@ Help build a reproducible, minimal-server CLI foundation for Debian/Ubuntu that 
 
 ## Non-negotiables (do not break these)
 - **Repo-only changes:** Do not edit anything outside this repository unless I explicitly ask.
-- **No login surgery:** Never modify `~/.profile`, `~/.bash_profile`, `~/.bash_login`, or system shell defaults.
+- **No login surgery:** Never modify any system shell defaults.
 - **Do not replace my shell config:** Never overwrite or restructure my existing `~/.bashrc` or `~/.bashrc.local`.
-  - If shell integration is needed, use an *optional include* pattern (e.g., a file meant to be sourced from `.bashrc`), and document it.
 - **No Docker in bootstrap:** Do not install Docker, docker-compose, or add Docker repos. Docker is manual by design.
 - **No dev runtimes in bootstrap:** Do not install Python/Node/Go/Rust toolchains unless explicitly requested.
 - **No destructive commands:** Do not run or suggest commands that can damage the system (e.g., `rm -rf`, editing `/etc`, changing permissions broadly) without asking first.
+
+## Shell structure (hard rules)
+- **Do not modify** `~/.profile`, `~/.bash_profile`, `~/.bash_login`, or any login-shell flow.
+- **Do not rewrite** `~/.bashrc` beyond keeping it a minimal interactive guard + loader.
+  - `~/.bashrc` must remain: interactive check + source `~/.bashrc.d/*.sh` in lexical order.
+- All custom shell behavior lives in `~/.bashrc.d/*.sh` modules only.
+
+## Modular layout (expected modules)
+- `00-env.sh` — exports only (NO secrets, NO command substitutions, do NOT set TERM)
+- `10-aliases.sh` — aliases only + safe wrappers (ok: trash-cli `rm` wrapper, `rmp`)
+- `20-functions.sh` — shell functions (ex/up/yy/zz)
+- `30-completion.sh` — completions + bind settings; safe to source tool completions when command exists
+- `40-tools.sh` — tool init (starship/zoxide/thefuck/atuin), must be gated:
+  - only interactive shells (`$-` contains `i`)
+  - only real TTY (`-t 1`)
+  - TERM not dumb
+  - no DEBUG traps, no xtrace
+- `50-network.sh` — network helpers only (no command substitution exports; prefer functions)
+- `60-package.sh` — package helpers; do NOT override `sudo()`; allow aliases for `apt -> nala`
+- `90-banner.sh` — **SSH-only banner**:
+  - must require `SSH_CONNECTION` + interactive + TTY
+- `99-local.sh` — optional per-host settings; avoid secrets
+
+## Security rules
+- Never store API keys/tokens/secrets in `.bashrc`, `.bashrc.d`, or any file that is auto-sourced by the shell.
+- If secrets are needed, use a documented, opt-in pattern (example file only), and keep real secrets out of git.
+
+## Safety rails for changes
+- Prefer changes that are additive and reversible.
+- Always provide:
+  - file list changed
+  - why
+  - validation commands
+- Never override core commands in surprising ways (no `sudo()` redefinition, no auto-start tmux/zellij).
+- Avoid changes that could break existing workflows or introduce new bugs
 
 ## Execution & permissions
 - **Do not run commands automatically.** If you need commands executed, list them first and wait for approval.
