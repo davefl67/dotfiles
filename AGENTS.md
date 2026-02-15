@@ -43,10 +43,6 @@ Help build a reproducible, minimal-server CLI foundation for Debian/Ubuntu that 
 
 ## Safety rails for changes
 - Prefer changes that are additive and reversible.
-- Always provide:
-  - file list changed
-  - why
-  - validation commands
 - Never override core commands in surprising ways (no `sudo()` redefinition, no auto-start tmux/zellij).
 - Avoid changes that could break existing workflows or introduce new bugs
 
@@ -76,7 +72,23 @@ For each task:
   - fetch: `fastfetch` + `pfetch`
   - file managers: `mc`, `yazi`, `ranger`
   - pager baseline: `less`, plus `moar`
+  - pager alternatives: `most`, `bat`
+  - shell completion: `bash-completion`
+
+## Environment conventions
+- `EDITOR` and `VISUAL` default to `micro`.
+- `PAGER` defaults to `less -FRX` for compatibility.
+- `moar` may be aliased over `less` in interactive shells, but `PAGER` must remain a stable system default.
+- `VIEWER` should follow `PAGER` unless explicitly required otherwise.
+- Do not override `TERM`.
+- Avoid unnecessary environment variables unless they are widely used
+- Do not use `alias` for anything that could be done with functions or sourced scripts.
+- Do not use `export` unless absolutely necessary (e.g for PATH modifications).
+- Do not use `sudo` in scripts 
 
 ## Output style
 - Be explicit. No vague instructions.
 - If a change touches shell startup behavior, explain impact and how to undo it.
+
+## Documentation
+- Document all changes with comments or links to relevant documentation.
