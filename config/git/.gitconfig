@@ -1,3 +1,6 @@
-# Placeholder gitconfig
 [user]
-	name = Dave Lowe
+	name = davefl67
+	email = dave@davedorm.com
+[core]
+	editor = micro
+	autocrlf = false
