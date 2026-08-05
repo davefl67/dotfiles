@@ -10,11 +10,4 @@ if [[ -o interactive ]]; then
 
   unset _zsh_repo_dir
 
-  if [[ -z "${TMUX-}" && -z "${DISABLE_TMUX-}" ]] && (( $+commands[tmux] )); then
-    if tmux has-session -t main 2>/dev/null; then
-      exec tmux attach-session -t main
-    else
-      exec tmux new-session -s main
-    fi
-  fi
 fi

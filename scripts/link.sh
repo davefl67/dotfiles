@@ -16,7 +16,7 @@ backup_existing() {
   printf 'Backed up %s -> %s\n' "$target" "$backup"
 }
 
-link_file() {
+link_path() {
   local source="$1"
   local target="$2"
 
@@ -39,11 +39,14 @@ link_file() {
   printf 'Linked %s -> %s\n' "$target" "$source"
 }
 
-link_file "$REPO_ROOT/config/bash/bashrc.shim" "$HOME/.bashrc"
-link_file "$REPO_ROOT/config/starship/starship.toml" "$HOME/.config/starship.toml"
-link_file "$REPO_ROOT/config/tmux/tmux.conf" "$HOME/.tmux.conf"
-link_file "$REPO_ROOT/config/git/.gitconfig" "$HOME/.gitconfig"
-link_file "$REPO_ROOT/config/git/.gitignore_global" "$HOME/.gitignore_global"
-link_file "$REPO_ROOT/config/btop/btop.conf" "$HOME/.config/btop/btop.conf"
+link_path "$REPO_ROOT/config/bash/.bashrc" "$HOME/.bashrc"
+link_path "$REPO_ROOT/config/bash/.bashrc.d" "$HOME/.bashrc.d"
+link_path "$REPO_ROOT/config/zsh/zshenv" "$HOME/.zshenv"
+link_path "$REPO_ROOT/config/zsh/zshrc" "$HOME/.zshrc"
+link_path "$REPO_ROOT/config/starship/starship.toml" "$HOME/.config/starship.toml"
+link_path "$REPO_ROOT/config/tmux/tmux.conf" "$HOME/.tmux.conf"
+link_path "$REPO_ROOT/config/git/.gitconfig" "$HOME/.gitconfig"
+link_path "$REPO_ROOT/config/git/.gitignore_global" "$HOME/.gitignore_global"
+link_path "$REPO_ROOT/config/btop/btop.conf" "$HOME/.config/btop/btop.conf"
 
 printf 'Done.\n'

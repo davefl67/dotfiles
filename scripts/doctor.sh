@@ -123,10 +123,15 @@ check_tool "git" "git" "--version"
 
 echo
 echo "Symlink checks (best effort)"
+check_symlink_into_repo "$HOME/.bashrc"
+check_symlink_into_repo "$HOME/.bashrc.d"
 check_symlink_into_repo "$HOME/.zshrc"
 check_symlink_into_repo "$HOME/.zshenv"
 check_symlink_into_repo "$HOME/.tmux.conf"
 check_symlink_into_repo "$HOME/.config/starship.toml"
+check_symlink_into_repo "$HOME/.gitconfig"
+check_symlink_into_repo "$HOME/.gitignore_global"
+check_symlink_into_repo "$HOME/.config/btop/btop.conf"
 
 if [[ $missing_required -eq 0 ]]; then
   exit 0

@@ -1,1 +1,19 @@
 # Placeholder global gitignore
+.nvm/
+node_modules/
+*.log
+.DS_Store
+.env.local
+.env.development.local
+.env
+.env.test
+.env.production
+.env.example
+.env.sample
+.env.template
+.env.default
+.env.base
+.env.common
+.env.shared
+.env.stage
+.env.preprod
